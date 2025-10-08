@@ -1,0 +1,127 @@
+Recap:
+React Portals.
+
+All ReactComponent Render/placed inside a Dom Tree wherever they are placed
+
+index.html
+<body>
+<div id=root>
+Here the App component will be rendered or displayed
+<div id="mycomp1">
+<MyComponent1>
+</div>
+<div id="mycomp2">
+<MyComponent1>
+</div>
+<div id="mycomp3">
+<MyComponent1>
+</div>
+</div>// here ends the parent dom tree /heiracrhy 
+
+<div id="anotherseparatedomtree">
+<Notification/>
+</div>
+
+</div>
+
+
+
+<body>
+
+ParentComponent-----> AppComponent
+main.jsx: 
+document.getElementById('root');
+<AppComponent/>
+
+
+
+function AppComponent()
+{
+
+return(
+<MyComponent1/>
+<MyComponent2/>
+<MyComponent3/>
+
+)
+}
+
+// we start creating react components
+
+function MyComponent1()
+{
+return(
+<>
+</>
+)
+
+}
+function MyComponent2()
+{
+
+}
+function MyComponent3()
+{
+
+}
+
+function  Notification()
+{
+
+}
+
+
+I want to place a React Component outside the React Dom Tree
+I dont want a react Component to be a part of React Parent dom tree
+I want to render the child component outside the parents dom tree/heirarchy
+
+
+<body>
+<div id=root>
+<div id="anotherroot">
+</body>
+
+
+React Portal's wiill allow you to render the child component outside the parents dom tree/heirarchy
+
+
+
+
+ReactDOM.createPortal(child component,container);
+ReactDOM.createPortal(<SomeComponent/>,document.getElementById('myportal'))
+index.html
+<body>
+<div id=root></div> // container
+<div id=myportal></div>// container
+</body>
+
+
+export default function DemoComponent(props)
+{
+
+return (
+
+    ReactDOM.createPortal(
+<div>
+
+<h1>Portal Component{props.data}</h1>
+
+
+</div>,document.getElementById('myportal')
+
+
+    )
+)
+The first argument is  child react renderable component
+
+
+
+
+
+
+
+
+
+
+
+
