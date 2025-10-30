@@ -1,0 +1,20 @@
+npm install --save-dev cypress @cypress/react @cypress/vite-dev-server
+npx cypress open
+
+
+in cypress.config file make the below changes
+import { defineConfig } from "cypress";
+import { vitePreprocessor } from "cypress-vite";
+ 
+export default defineConfig({
+  e2e: {
+    baseUrl: "http://localhost:5173", // adjust if needed
+  },
+  component: {
+    devServer: {
+      framework: "react",
+      bundler: "vite",
+    },
+    specPattern: "cypress/component/**/*.cy.{js,jsx,ts,tsx}",
+  },
+});
